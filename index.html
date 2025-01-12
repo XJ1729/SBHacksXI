@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src='https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.js'></script>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.css' rel='stylesheet' />
+    <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.3.1/mapbox-gl-directions.js"></script>
+    <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.3.1/mapbox-gl-directions.css" type="text/css">
+    <title>CleanCommute</title>
+    <style>
+        body {
+            margin: 0;
+        }
+        .parent{
+            height: 100vh;
+            width: 100vw;
+        }
+        .child{
+            float: left;
+            width: 50%;
+        }
+        #map {
+            border-radius: 20px;
+            height: 100vh;
+            width: 69.5vw;
+            float: right;
+            display: flex;
+            overflow: hidden
+        }
+        .eco-score-box {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: #d4edda;
+            color: #276335;
+            padding: 10px 15px;
+            border-radius: 8px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            font-weight: bold;
+            font-size: 1rem;
+            z-index: 1000;
+            display: inline;
+        }
+        .sideline{
+            /* display: flex; */
+            align-items: center;
+            flex-wrap: wrap;
+            position: relative;
+            height: 100vh;
+            width: 29vw;
+            float: left;
+            background-color: #276335;
+            padding: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            font-weight: bold;
+            border-radius: 20px;
+            overflow:hidden;
+            
+        }
+    </style>
+</head>
+<body>
+    <link rel="stylesheet" href="index.css" />
+    <div class="parent"> 
+        <div class = child> 
+            <div class= "sideline">
+                <h1> CleanCommute </h1>
+                <div class="box">
+                    <span class="text">Your next destination awaits you!<br /></span>
+                </div>
+                <div class="wrapper"></div>
+                <div class="section"></div>
+                <span class="text-3">Where are you headed?</span>
+                <div class="box-2"></div>
+                <span class="text-2">1. Enter in an address</span>
+                <div class="box-3"></div>
+                <span class="text-2-1">2. Select a method of travel</span>
+                <div class="box-4"></div>
+                <span class="text-2-2">3. The eco score is calculated!</span>
+                <!-- <h1 style="color: #276335;">CleanCommute</h1>
+                <p style="color: #123019;">Select your mode of transport to see the eco score</p> -->
+            </div>
+        </div>
+        <div class = child>
+            <div id = 'map'></div>
+        </div>
+    </div>
+    <!-- <div id = 'map'></div>
+    <div class = 'sideline'>
+        <h1 style="color: rgb(180, 250, 199);">CleanCommute</h1>
+        <p style="color: rgb(180, 250, 199);">Select your mode of transport to see the eco score</p>
+        <button id="walk" class="btn">Walk</button>
+        <button id="bike" class="btn">Bike</button>
+        <button id="car" class="btn">Car</button>
+        <button id="bus" class="btn">Bus</button>
+        <button id="train" class="btn">Train</button>
+        <button id="plane" class="btn">Plane</button>
+    </div>     -->
+    <div class="eco-score-box" id="eco-score-box">
+        Eco Score: <span id="eco-score-value">0</span>%
+    </div>
+    <script src="script.js" defer></script>
+</body>
+</html>
